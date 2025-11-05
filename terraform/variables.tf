@@ -7,19 +7,19 @@ variable "cluster_name" {
 variable "location" {
   description = "The Azure region where the resources will be created."
   type = string
-  default = "eastus2"
+  default = "canadacentral"
 }
 
 variable "resource_group_name" {
   description = "The name of the resource group where the resources will be created."
   type = string
-  default = "microservices-rg"
+  default = "ecommerce-microservices-rg"
 }
 
 variable "dns_prefix" {
   description = "The DNS prefix for the Kubernetes cluster."
   type = string
-  default = "microservices"
+  default = "ecommerce-microservices"
 }
 
 variable "subscription_id" {
@@ -40,10 +40,4 @@ variable "client_secret" {
 variable "client_id" {
   description = "Azure client ID"
   type        = string
-}
-
-variable "aws_region" {
-  description = "AWS region to deploy resources"
-  type        = string
-  default     = "us-east-2"
 }

@@ -1,10 +1,10 @@
 output "resource_group_name" {
-  description = "The Resource Group Name"
+  description = "ecommerce-microservices-rg"
   value       = azurerm_resource_group.microservices_rg.name
 }
 
 output "aks_cluster_names" {
-  description = "The names of all AKS clusters"
+  description = "microservices-cluster-prod"
   value = {
     for k, m in module.aks :
     k => m.aks_cluster_name
@@ -12,7 +12,7 @@ output "aks_cluster_names" {
 }
 
 output "aks_hosts" {
-  description = "The host URLs of all AKS clusters"
+  description = "microservices-cluster-prod-host"
   value = {
     for k, m in module.aks :
     k => m.host
@@ -22,7 +22,7 @@ output "aks_hosts" {
 
 
 output "aks_client_certificates" {
-  description = "Client certificates of all AKS clusters"
+  description = "microservices-cluster-prod-client-certificate"
   value = {
     for k, m in module.aks :
     k => m.client_certificate
@@ -31,7 +31,7 @@ output "aks_client_certificates" {
 }
 
 output "aks_client_keys" {
-  description = "Client keys of all AKS clusters"
+  description = "microservices-cluster-prod-client-key"
   value = {
     for k, m in module.aks :
     k => m.client_key
@@ -40,7 +40,7 @@ output "aks_client_keys" {
 }
 
 output "aks_cluster_ca_certificates" {
-  description = "Cluster CA certificates of all AKS clusters"
+  description = "microservices-cluster-prod-cluster-ca-certificate"
   value = {
     for k, m in module.aks :
     k => m.cluster_ca_certificate
@@ -49,23 +49,23 @@ output "aks_cluster_ca_certificates" {
 }
 
 output "acr_name" {
-  description = "Name of the Azure Container Registry"
+  description = "microservices-acr"
   value       = azurerm_container_registry.microservices_acr.name
 }
 
 output "acr_login_server" {
-  description = "Login server URL of the Azure Container Registry"
+  description = "microservices-acr-login-server"
   value       = azurerm_container_registry.microservices_acr.login_server
 }
 
 output "acr_admin_username" {
-  description = "Admin username for the Azure Container Registry"
+  description = "microservices-acr-admin-username"
   value       = azurerm_container_registry.microservices_acr.admin_username
   sensitive   = true
 }
 
 output "acr_admin_password" {
-  description = "Admin password for the Azure Container Registry"
+  description = "microservices-acr-admin-password"
   value       = azurerm_container_registry.microservices_acr.admin_password
   sensitive   = true
 }

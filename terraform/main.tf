@@ -23,10 +23,10 @@ module "aks" {
 
     # Usando el cluster prod que ya existe
     prod = {
-      location     = "eastus2"
+      location     = "canadacentral"
       cluster_name = "${var.cluster_name}-prod"
       dns_prefix   = "${var.dns_prefix}-prod"
-      node_count   = 2
+      node_count   = 1
       vm_size      = "Standard_D2s_v3"
       tags = {
         environment = "prod"
@@ -44,17 +44,8 @@ module "aks" {
 }
 
 provider "kubernetes" {
-  host                   = module.aks.host
-  client_certificate     = base64decode(module.aks.client_certificate)
-  client_key             = base64decode(module.aks.client_key)
-  cluster_ca_certificate = base64decode(module.aks.cluster_ca_certificate)
+  host                   = module.aks["prod"].host
+  client_certificate     = base64decode(module.aks["prod"].client_certificate)
+  client_key             = base64decode(module.aks["prod"].client_key)
+  cluster_ca_certificate = base64decode(module.aks["prod"].cluster_ca_certificate)
 }
-
-# terraform {
-#   backend "s3" {
-#     bucket  = "microservices-state-bucket"
-#     key     = "terraform/terraform.tfstate"
-#     region  = "us-east-2"
-#     encrypt = true
-#   }
-# }

@@ -5,7 +5,3 @@ provider "azurerm" {
   client_secret= var.client_secret
   client_id = var.client_id
 }
-
-provider "aws" {
-  region = var.aws_region
-}
