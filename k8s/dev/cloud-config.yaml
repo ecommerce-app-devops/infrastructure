@@ -37,11 +37,11 @@ spec:
           resources:
             requests:
               memory: "256Mi"
-              cpu: "100m"
+              cpu: "50m"
               ephemeral-storage: "512Mi"
             limits:
               memory: "768Mi"
-              cpu: "300m"
+              cpu: "150m"
               ephemeral-storage: "1Gi"
       restartPolicy: Always
 

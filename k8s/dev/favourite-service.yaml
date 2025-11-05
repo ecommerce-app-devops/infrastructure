@@ -46,11 +46,11 @@ spec:
           resources:
             requests:
               memory: "384Mi"
-              cpu: "300m"
+              cpu: "150m"
               ephemeral-storage: "512Mi"
             limits:
               memory: "512Mi"
-              cpu: "500m"
+              cpu: "200m"
               ephemeral-storage: "1Gi"
           readinessProbe:
             httpGet:
